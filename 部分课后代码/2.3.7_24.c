@@ -14,7 +14,7 @@ void func (PNODE h,int n){
     for(int i=0;i<n+1;i++)          //initialize-->0
         *(q+1)=0;
     while(p->link!=NULL){
-        m=p->link->data>0?p->link->data:-p->link->data;
+        m=p->link->data>0?p->link->data:-p->link->data; //absolute value
         if(*(q+m)==0){
             *(q+m)=1;
             p=p->link;
