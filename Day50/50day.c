@@ -1,49 +1,6 @@
  #include <stdio.h>
  #include <stdlib.h>
- 
 
-//Day02
-//将两个有序顺序表合并为一个新的有序顺序表,并由函数返回结果顺序表
-bool Merge(SqList A,SqList B,SqList C){
-	if(A.length + B.length > C.length){
-		return false;
-	}
-	int i=0,j=0,k=0;
-	while(i<A.length && j<B.length){
-		if(A.data[i]<B.data[j]){
-			C.data[k] = A.data[i];
-			i++;k++;
-		}else{
-			C.data[k] = B.data[j];
-			j++;k++;
-		}
-	}
-	while(i<A.length){
-		C.data[k++] = A.data[i++];
-	}
-	while(j<B.length){
-		C.data[k++] = B.data[j++];
-	}
-	C.length = k+1;
-	return true;
-}
-//Day03
-//设计一个高效算法,将顺序表L的所有元素逆置,要求算法的空间复杂度为O(1)
-void Reverse(SqList &L){
-	ElemType temp;
-	for(int i=0;i<L.length/2;i++){
-		temp = L.data[i];
-		L.data[i] = L.data[L.length-i-1];
-		L.data[L.length-i-1] = temp;
-	}
-}
-//递归法
-void Reverse(int* A,int low,int high){
-	if(low < high){
-		swap(A[low],A[high]);
-		Reverse(A,low+1,high-1);
-	}
-}
 //Day04
 //对长度为n的顺序表L,编写一个时间复杂度为O(n),空间复杂度为O(1)的算法,
 //该算法删除线性表中所有值为x的数据元素
